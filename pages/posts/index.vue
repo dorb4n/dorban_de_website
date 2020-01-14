@@ -1,0 +1,43 @@
+<template>
+    <div>
+        Here comes the posts
+        <pre>
+            {{posts}}
+        </pre>
+
+        <h1>{{ title }}</h1>
+        
+        <ul v-for="post in posts" v-bind:key="post.slug">
+            <li><router-link :to="{ path: 'posts/' + post.slug}">{{ post.title }}</router-link> <time :datetime="post.published_on">{{ post.published_on | moment }}</time></li>
+        </ul>
+    </div>
+</template>
+
+<script>
+import axios from 'axios'
+var moment = require('moment')
+
+export default {
+    async asyncData ({ params }) {
+        const { data } = await axios.get(process.env.api + `/items/posts?fields=title,slug,published_on`)
+        return { 
+            posts: data.data
+        }
+    },
+    filters: {
+        moment: function (date) {
+            return moment(date).format('D.MM.YYYY')
+        }
+    },
+    data () {
+        return {
+            title: 'My posts'
+        }
+    },
+    head () {
+        return {
+            title: this.title + ' :: ' + process.env.pageTitle
+        }
+    }
+}
+</script>
