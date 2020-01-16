@@ -12,7 +12,10 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Major+Mono+Display|Open+Sans&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap' }
     ]
   },
   env: {
@@ -45,19 +48,12 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/markdownit',
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-  },
-  /*
-  ** Markdownit module configuration
-  */
-  markdownit: {
-    injected: true
   },
   /*
   ** Build configuration

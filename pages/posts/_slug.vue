@@ -1,20 +1,19 @@
 <template>
-    <div>
-        Here comes the post
-        <pre>
-            {{ post }}￼
-        </pre>
+    <div class="base">
+        <Sidebar />
+        <div class="content">
+            <h1>{{ post.title }}</h1>
+            
+            <div v-html="post.text"></div>
 
-        <h1>{{ post.title }}</h1>
-        
-        <div v-html="post.text"></div>
-
-        <div><router-link to="/posts">back</router-link></div>
+            <router-link to="/posts" class="back">« zurück</router-link>
+        </div>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Sidebar from '~/components/Sidebar'
 
 export default {
     async asyncData ({ params }) {
@@ -23,6 +22,9 @@ export default {
             post: data.data
         }
     },
+    components: {
+        Sidebar
+    },
     head () {
         return {
             title: this.post.title + ' :: ' + process.env.pageTitle
@@ -30,3 +32,10 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.back {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 1.3rem;
+}
+</style>

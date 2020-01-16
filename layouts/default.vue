@@ -4,52 +4,75 @@
   </div>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+<style lang="scss">
+body {
+  background-color: #F5F5F5;
+  color: #293845;
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4 {
+  color: #215585;
+  font-family: 'Fredericka the Great', cursive;
+  font-weight: 300;
+  text-shadow: -1px -1px 0 #fff;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+h1, .h1 {
+  font-size: 3rem;
+}
+h2, .h2 {
+  font-size: 2.5rem;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+a {
+  color: #215585;
+
+  &:hover {
+    background-color: #293845;
+    color: #F5F5F5;
+    text-decoration: none;
+  }
+  &[target="_blank"]:after {
+    content: ' »';
+    display: inline-block;
+  }
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.base {
+  display: flex;
+  flex-direction: row;
+
+  img {
+    border-radius: 5px;
+    height: auto;
+    max-width: 100%;
+  }
+
+  pre {
+    color: #215585;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+    overflow-x: auto;
+  }
+}
+.sidebar {
+  background: #000;
+  flex-shrink: 0;
+  height: 100vh;
+  width: 40%;
+}
+.content {
+  box-sizing: border-box;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 40px;
+  width: 60%;
 }
 </style>

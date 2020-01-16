@@ -1,16 +1,15 @@
 <template>
-    <div>
-        Here comes the page
-        <pre>
-            {{page}}
-        </pre>
-        
-        <div v-html="page.text"></div>
+    <div class="base">
+        <Sidebar />
+        <div class="content">
+            <div v-html="page.text"></div>
+        </div>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Sidebar from '~/components/Sidebar'
 
 export default {
     async asyncData ({ params }) {
@@ -18,6 +17,9 @@ export default {
         return { 
             page: data.data
         }
+    },
+    components: {
+        Sidebar
     },
     head () {
         return {
