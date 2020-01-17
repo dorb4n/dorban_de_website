@@ -22,6 +22,8 @@ export default {
     background-size: cover;
 }
 .logo {
+    background: rgba(255, 255, 255, .5);
+    display: inline-block;
     margin-top: 50px;
     padding: 20px 40px;
     text-shadow: 0 0 20px #fff;

@@ -11,6 +11,7 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.2rem;
+  font-weight: 400;
 }
 
 h1, .h1,
@@ -29,6 +30,12 @@ h1, .h1 {
 h2, .h2 {
   font-size: 2.5rem;
 }
+h3, .h3 {
+  font-size: 2rem;
+}
+h4, .h4 {
+  font-size: 1.5rem;
+}
 
 a {
   color: #215585;
@@ -45,8 +52,12 @@ a {
 }
 
 .base {
-  display: flex;
-  flex-direction: row;
+  
+
+  @media (min-width: 900px) {
+    display: flex;
+  flex-direction: row;  
+  }
 
   img {
     border-radius: 5px;
@@ -64,15 +75,23 @@ a {
 }
 .sidebar {
   background: #000;
-  flex-shrink: 0;
-  height: 100vh;
-  width: 40%;
+  height: 60vh;
+
+  @media (min-width: 900px) {
+    flex-shrink: 0;
+    height: 100vh;
+    width: 40%;
+  }
 }
 .content {
-  box-sizing: border-box;
-  height: 100vh;
-  overflow-y: auto;
-  padding: 40px;
-  width: 60%;
+  padding: 40px 10px;
+
+  @media (min-width: 900px) {
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 40px;
+    width: 60%;
+  }
 }
 </style>
