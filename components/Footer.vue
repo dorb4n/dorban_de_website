@@ -11,16 +11,12 @@
 </template>
 
 <script>
-
-function copyright() {
-    const copyright = new Date().getFullYear() + ' ' + process.env.pageTitle
-    return copyright
-}
+const copyright = new Date().getFullYear() + ' ' + process.env.pageTitle
 
 export default {
     data () {
         return {
-            copyright: copyright()
+            copyright: copyright
         }
     }
 }
@@ -50,7 +46,7 @@ export default {
             &:before {
                 content: '// ';
                 display: inline-block;
-                padding-right: 5px;
+                padding-right: 4px;
             }
         }
     }
