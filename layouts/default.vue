@@ -21,7 +21,6 @@ h4, .h4 {
   color: #215585;
   font-family: 'Fredericka the Great', cursive;
   font-weight: 300;
-  text-shadow: -1px -1px 0 #fff;
 }
 
 h1, .h1 {
@@ -66,18 +65,21 @@ a {
   }
 
   pre {
+    background: #fff;
     color: #215585;
     font-family: 'Source Code Pro', monospace;
     font-size: 1.3rem;
     line-height: 1.6rem;
     overflow-x: auto;
+    padding: 20px;
   }
 
   a {
+    text-decoration: none;
+
     &:hover {
       background-color: #293845;
       color: #F5F5F5;
-      text-decoration: none;
     }
     &[target="_blank"]:after {
       content: ' »';
