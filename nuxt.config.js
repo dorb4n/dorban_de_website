@@ -19,8 +19,8 @@ export default {
     ]
   },
   env: {
-    pageTitle: 'DORBAN.DE',
-    api: 'https://api.dorban.de',
+    pageTitle: 'DORBAN',
+    api: 'https://api.dorban.de/dorban/',
   },
   /*
   ** Customize the progress-bar color
@@ -30,7 +30,6 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/css/app.scss',
   ],
   /*
   ** Plugins to load before mounting the App

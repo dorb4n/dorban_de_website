@@ -5,7 +5,7 @@
             <h1>{{ title }}</h1>
             
             <div v-for="post in posts" v-bind:key="post.slug">
-                <article>
+                <article class="post-list-article">
                     <div class="date">
                         <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
                     </div>
@@ -16,6 +16,10 @@
 
                         <div v-if="post.intro" v-html="post.intro">
                         </div>
+
+                        <nuxt-link :to="{ path: 'posts/' + post.slug}">
+                            &raquo; mehr
+                        </nuxt-link>
                     </div>
                 </article>
             </div>
@@ -35,7 +39,7 @@ var moment = require('moment')
 
 export default {
     async asyncData ({ params }) {
-        const { data } = await axios.get(`/dorban/items/posts?fields=title,slug,published_on,intro`)
+        const { data } = await axios.get(`items/posts?fields=title,slug,published_on,intro`)
         return { 
             posts: data.data
         }
@@ -62,12 +66,16 @@ export default {
 }
 </script>
 
-<style lang="scss">
-article {
+<style lang="scss" scoped>
+.post-list-article {
     margin-bottom: 100px;
 
     @media (min-width: 900px) {
         display: flex;
+    }
+
+    a {
+        text-decoration: none;
     }
 }
 

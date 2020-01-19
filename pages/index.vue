@@ -17,7 +17,7 @@ import Sidebar from '~/components/Sidebar'
 
 export default {
   async asyncData ({ params }) {
-    const { data } = await axios.get('/dorban/items/pages?filter[slug][eq]=home&fields=title,text&single=1')
+    const { data } = await axios.get('items/pages?filter[slug][eq]=home&fields=title,text&single=1')
     return { 
       home: data.data
     }
