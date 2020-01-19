@@ -10,38 +10,39 @@
                         <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
                     </div>
                     <div class="intro">
-                        <router-link :to="{ path: 'posts/' + post.slug}">
+                        <nuxt-link :to="{ path: 'posts/' + post.slug}">
                             <h3>{{ post.title }}</h3>
-                        </router-link>
+                        </nuxt-link>
 
-                        <div v-if="post.image">
-                            {{ post.image }}
-                            <Picture :pid="post.image" />
+                        <div v-if="post.intro" v-html="post.intro">
                         </div>
                     </div>
                 </article>
             </div>
+
+            <Footer />
         </main>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '~/plugins/axios'
+
+import Footer from '~/components/Footer'
 import Sidebar from '~/components/Sidebar'
-import Picture from '~/components/Picture'
 
 var moment = require('moment')
 
 export default {
     async asyncData ({ params }) {
-        const { data } = await axios.get(process.env.api + `/items/posts?fields=title,slug,published_on,image,intro`)
+        const { data } = await axios.get(`/dorban/items/posts?fields=title,slug,published_on,intro`)
         return { 
             posts: data.data
         }
     },
     components: {
-        Sidebar,
-        Picture
+        Footer,
+        Sidebar
     },
     filters: {
         moment: function (date) {
@@ -50,7 +51,7 @@ export default {
     },
     data () {
         return {
-            title: 'My posts'
+            title: 'Posts'
         }
     },
     head () {

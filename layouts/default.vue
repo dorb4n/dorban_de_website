@@ -39,24 +39,24 @@ h4, .h4 {
 
 a {
   color: #215585;
-
-  &:hover {
-    background-color: #293845;
-    color: #F5F5F5;
-    text-decoration: none;
-  }
-  &[target="_blank"]:after {
-    content: ' »';
-    display: inline-block;
-  }
 }
 
 .base {
-  
-
   @media (min-width: 900px) {
     display: flex;
-  flex-direction: row;  
+    flex-direction: row;  
+  }
+}
+
+.content {
+  padding: 40px 10px;
+
+  @media (min-width: 900px) {
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 40px;
+    width: 60%;
   }
 
   img {
@@ -72,26 +72,17 @@ a {
     line-height: 1.6rem;
     overflow-x: auto;
   }
-}
-.sidebar {
-  background: #000;
-  height: 60vh;
 
-  @media (min-width: 900px) {
-    flex-shrink: 0;
-    height: 100vh;
-    width: 40%;
-  }
-}
-.content {
-  padding: 40px 10px;
-
-  @media (min-width: 900px) {
-    box-sizing: border-box;
-    height: 100vh;
-    overflow-y: auto;
-    padding: 40px;
-    width: 60%;
+  a {
+    &:hover {
+      background-color: #293845;
+      color: #F5F5F5;
+      text-decoration: none;
+    }
+    &[target="_blank"]:after {
+      content: ' »';
+      display: inline-block;
+    }
   }
 }
 </style>

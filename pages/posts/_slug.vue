@@ -1,28 +1,33 @@
 <template>
     <div class="base">
         <Sidebar />
-        <div class="content">
+        <main class="content">
             <h1>{{ post.title }}</h1>
-            
+           
             <div v-html="post.text"></div>
 
             <router-link to="/posts" class="back">« zurück</router-link>
-        </div>
+
+            <Footer />
+        </main>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '~/plugins/axios'
+
+import Footer from '~/components/Footer'
 import Sidebar from '~/components/Sidebar'
 
 export default {
     async asyncData ({ params }) {
-        const { data } = await axios.get(process.env.api + `/items/posts?filter[slug][eq]=${params.slug}&fields=title,text&single=1`)
+        const { data } = await axios.get(`/dorban/items/posts?filter[slug][eq]=${params.slug}&fields=title,text&single=1`)
         return { 
             post: data.data
         }
     },
     components: {
+        Footer,
         Sidebar
     },
     head () {
@@ -32,10 +37,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.back {
-    font-family: 'Fredericka the Great', cursive;
-    font-size: 1.3rem;
-}
-</style>
