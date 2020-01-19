@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar {
-    background: #000 url('https://images.unsplash.com/photo-1577180234245-9d43488a6722?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1835&q=80') center no-repeat;
+    background: #000 url('~assets/images/Sidebar2.jpg') left center no-repeat;
     background-size: cover;
     height: 60vh;
 
@@ -46,11 +46,10 @@ export default {
     }
 
     &-block {
-        background: rgba(255, 255, 255, .5);
+        background: rgba(255, 255, 255, .8);
         display: inline-block;
         margin-top: 50px;
         padding: 20px 40px;
-        text-shadow: 0 0 20px #fff;
     }
 
     &-navigation {
