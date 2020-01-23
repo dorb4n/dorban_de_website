@@ -1,6 +1,5 @@
 <template>
     <div class="base">
-        <Sidebar />
         <main class="content">
             <h1>{{ title }}</h1>
             
@@ -18,22 +17,17 @@
                         </div>
 
                         <nuxt-link :to="{ path: 'posts/' + post.slug}">
-                            &raquo; mehr
+                            <span uk-icon="chevron-double-right"></span> Mehr
                         </nuxt-link>
                     </div>
                 </article>
             </div>
-
-            <Footer />
         </main>
     </div>
 </template>
 
 <script>
 import axios from '~/plugins/axios'
-
-import Footer from '~/components/Footer'
-import Sidebar from '~/components/Sidebar'
 
 var moment = require('moment')
 
@@ -43,10 +37,6 @@ export default {
         return { 
             posts: data.data
         }
-    },
-    components: {
-        Footer,
-        Sidebar
     },
     filters: {
         moment: function (date) {
@@ -73,19 +63,9 @@ export default {
     @media (min-width: 900px) {
         display: flex;
     }
-
-    a {
-        text-decoration: none;
-    }
 }
 
 .date {
     padding-right: 40px;
-}
-.intro {
-    h3 {
-        line-height: 2rem;
-        margin: 0;
-    }
 }
 </style>

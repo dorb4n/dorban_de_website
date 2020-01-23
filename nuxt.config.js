@@ -12,10 +12,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:400&display=swap' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   env: {
@@ -30,12 +27,15 @@ export default {
   ** Global CSS
   */
   css: [
+    'uikit/dist/css/uikit.css',
+    '@/assets/scss/base.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/axios'
+    '@/plugins/axios',
+    { src: '~/plugins/uikit.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
