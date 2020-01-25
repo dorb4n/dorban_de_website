@@ -49,7 +49,19 @@ h1,
 h2,
 h3,
 h4 {
+  background: rgb(10,89,163);
+  background: linear-gradient(90deg, rgba(10,89,163,1) 0%, rgba(0,105,8,1) 100%); 
   font-family: monospace;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+a {
+  color:rgba(10,89,163,1);
+
+  &:hover {
+    color: rgba(0,105,8,1);
+  }
 }
 
 .content {

@@ -30,10 +30,14 @@ export default {
 
 <style lang="scss" scoped>
     .page-title {
+        background: rgb(34,193,195);
+        background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
         font-family: monospace;
         font-size: 4rem;
         line-height: 4rem;
         margin: -4px 0 40px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     .uk-offcanvas-bar {
         background: #333;
