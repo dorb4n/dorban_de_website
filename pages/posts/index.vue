@@ -8,9 +8,9 @@
                     <div class="date">
                         <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
                     </div>
-                    <div class="intro">
+                    <div class="post-list-intro">
                         <nuxt-link :to="{ path: 'posts/' + post.slug}">
-                            <h3>{{ post.title }}</h3>
+                            <h3 class="post-list-title">{{ post.title }}</h3>
                         </nuxt-link>
 
                         <div v-if="post.intro" v-html="post.intro">
@@ -57,11 +57,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.post-list-article {
-    margin-bottom: 100px;
+.post-list {
+    &-article {
+        margin-bottom: 100px;
 
-    @media (min-width: 900px) {
-        display: flex;
+        @media (min-width: 900px) {
+            display: flex;
+        }
+    }
+    &-title {
+        line-height: 1.3rem;
     }
 }
 

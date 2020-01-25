@@ -2,8 +2,11 @@
   <div>
 
     <OffCanvas />
-
-    <a class="navigation-kicker" href="#navigation" uk-toggle><span uk-icon="icon: menu; ratio: 2"></span></a>
+    <a class="navigation-kicker" href="#navigation" uk-toggle
+       v-on:click='isOpen = !isOpen'>
+       <span v-show="!isOpen" uk-icon="icon: menu; ratio: 2"></span>
+       <span v-show="isOpen" uk-icon="icon: close; ratio: 2"></span>
+    </a>
 
     <nuxt />
 
@@ -16,6 +19,11 @@ import OffCanvas from '~/components/OffCanvas'
 export default {
   components: {
     OffCanvas
+  },
+  data () {
+    return {
+      isOpen: false
+    }
   }
 }
 </script>
@@ -23,21 +31,34 @@ export default {
 <style lang="scss">
 body {
   margin: 0;
-  font-family: serif;
+  font-family: monospace;
 }
 
 .navigation-kicker {
-  margin-left: 30px;
+  background: rgba(255, 255, 255, .9);
+  padding: 15px;
   position: fixed;
+
+  @media (min-width: 940px) {
+    margin-left: 30px;
+    padding: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: monospace;
 }
 
 .content {
-  margin: 30px auto;
-  padding: 0 20px;
-  max-width: 900px;
+  padding: 70px 20px;
+  max-width: 800px;
 
   @media (min-width: 940px) {
-    padding: 0;
+    margin: 30px auto;
+    padding: 0 20px;
   }
 
   img {
@@ -52,6 +73,10 @@ body {
       display: inline-block;
       padding-left: 4px;
     }
+  }
+
+  p, ul, ol, dl, address {
+    font-family: serif;
   }
 }
 </style>
