@@ -33,7 +33,7 @@ var moment = require('moment')
 
 export default {
     async asyncData ({ params }) {
-        const { data } = await axios.get(`items/posts?fields=title,slug,published_on,intro`)
+        const { data } = await axios.get(`items/posts?fields=title,slug,published_on,intro&sort=-published_on`)
         return { 
             posts: data.data
         }
