@@ -7,6 +7,8 @@
                 <div class="uk-article-meta">
                     <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
                 </div>
+
+                <div class="uk-text-lead" v-html="post.intro"></div>
             
                 <div v-html="post.text"></div>
             </article>
@@ -23,7 +25,7 @@ var moment = require('moment')
 
 export default {
     async asyncData ({ params }) {
-        const { data } = await axios.get(`items/posts?filter[slug][eq]=${params.slug}&fields=title,text,published_on&single=1`)
+        const { data } = await axios.get(`items/posts?filter[slug][eq]=${params.slug}&fields=intro,title,text,published_on&single=1`)
         return { 
             post: data.data
         }
