@@ -8,11 +8,14 @@
 import axios from '~/plugins/axios'
 
 export default {
-  async asyncData ({ params }) {
-    const { data } = await axios.get('items/pages?filter[slug][eq]=home&fields=title,text&single=1')
-    return { 
-      home: data.data
-    }
+  async asyncData ({ params, error }) {
+    return await axios.get(`items/pages?filter[slug][eq]=home&fields=title,text&single=1`)
+      .then((res) => {
+        return { home: res.data.data }
+      })
+      .catch((e) => {
+        error({ statusCode: 404, message: 'Home not found' })
+      })
   },
   data () {
     return {

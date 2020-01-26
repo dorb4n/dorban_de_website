@@ -32,11 +32,14 @@ import axios from '~/plugins/axios'
 var moment = require('moment')
 
 export default {
-    async asyncData ({ params }) {
-        const { data } = await axios.get(`items/posts?fields=title,slug,published_on,intro&sort=-published_on`)
-        return { 
-            posts: data.data
-        }
+    async asyncData ({ params, error }) {
+        return await axios.get(`items/posts?fields=title,slug,published_on,intro&sort=-published_on`)
+            .then((res) => {
+                return { posts: res.data.data }
+            })
+            .catch((e) => {
+                error({ statusCode: 404, message: 'Posts not found' })
+            })
     },
     filters: {
         moment: function (date) {
