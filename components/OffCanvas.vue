@@ -1,9 +1,9 @@
 <template>
     <div id="navigation" uk-offcanvas="mode: reveal; bg-close: false; esc-close: false">
         <div class="uk-offcanvas-bar">
-            <div class="page-title">
+            <nuxt-link class="page-title" to="/">
                 <span uk-icon="icon: paint-bucket; ratio: 4"></span> {{ title }}
-            </div>
+            </nuxt-link>
             <ul class="uk-nav uk-nav-default">
                 <li><nuxt-link to="/"><span class="uk-margin-small-right" uk-icon="icon: home"></span> Home</nuxt-link></li>
                 <li><nuxt-link to="/posts"><span class="uk-margin-small-right" uk-icon="icon: comment"></span> Beiträge</nuxt-link></li>
@@ -32,6 +32,7 @@ export default {
     .page-title {
         background: rgb(34,193,195);
         background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+        display: block;
         font-family: monospace;
         font-size: 4rem;
         line-height: 4rem;

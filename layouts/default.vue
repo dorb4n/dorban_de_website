@@ -77,14 +77,6 @@ a {
     border-radius: 5px;
     height: auto;
     max-width: 100%;
-  } 
-
-  a {
-    &[target="_blank"]:after {
-      content: ' »';
-      display: inline-block;
-      padding-left: 4px;
-    }
   }
 
   p, ul, ol, dl, address {
