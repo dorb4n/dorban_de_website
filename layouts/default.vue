@@ -2,10 +2,8 @@
   <div>
 
     <OffCanvas />
-    <a class="navigation-kicker" href="#navigation" uk-toggle
-       v-on:click='isOpen = !isOpen'>
-       <span v-show="!isOpen" uk-icon="icon: menu; ratio: 2"></span>
-       <span v-show="isOpen" uk-icon="icon: close; ratio: 2"></span>
+    <a class="navigation-kicker" href="#navigation" uk-toggle>
+       <span uk-icon="icon: menu; ratio: 2"></span>
     </a>
 
     <nuxt />

@@ -1,5 +1,5 @@
 <template>
-    <div id="navigation" uk-offcanvas="mode: reveal; bg-close: false; esc-close: false">
+    <div id="navigation" uk-offcanvas="mode: reveal">
         <div class="uk-offcanvas-bar">
             <nuxt-link class="page-title" to="/">
                 <span uk-icon="icon: paint-bucket; ratio: 4"></span> {{ title }}
