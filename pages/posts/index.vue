@@ -48,7 +48,7 @@ export default {
     },
     data () {
         return {
-            title: 'Posts'
+            title: 'Beiträge'
         }
     },
     head () {
