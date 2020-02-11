@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "My first-rate Nuxt.js project",
+  "description": "Simple frontend for dorban.de",
   "author": "Dorban",
   "private": true,
   "scripts": {
