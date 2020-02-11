@@ -2,8 +2,8 @@
   <div>
 
     <OffCanvas />
-    <a class="navigation-kicker" href="#navigation" uk-toggle>
-       <span uk-icon="icon: menu; ratio: 2"></span>
+    <a class="navigation-kicker" href="#navigation" data-uk-toggle aria-label="Navigation öffnen oder schließen" >
+       <span data-uk-icon="icon: menu; ratio: 2"></span>
     </a>
 
     <nuxt />

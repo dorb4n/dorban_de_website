@@ -41,4 +41,14 @@ a {
     p, ul, ol, dl, address {
         font-family: serif;
     }
+
+    li {
+        @media (max-width: 939px) {
+            padding: 5px 0;
+        }
+    }
+
+    .uk-article-meta {
+        color: #666;
+    }
 }
