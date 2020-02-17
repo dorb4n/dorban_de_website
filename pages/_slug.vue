@@ -1,10 +1,8 @@
 <template>
-    <div class="base">
-        <main class="content">
-            <h1>{{ page.title }}</h1>
-            <div v-html="page.text"></div>
-        </main>
-    </div>
+    <main class="content">
+        <h1>{{ page.title }}</h1>
+        <div v-html="page.text"></div>
+    </main>
 </template>
 
 <script>

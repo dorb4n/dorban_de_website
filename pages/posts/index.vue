@@ -1,33 +1,32 @@
 <template>
-    <div class="base">
-        <main class="content">
-            <h1>{{ title }}</h1>
-            
-            <div v-for="post in posts" v-bind:key="post.slug">
-                <article class="post-list-article" data-uk-scrollspy="cls: uk-animation-slide-left-small; target: .templates-posts_article; delay: 300; repeat: true">
-                    <div class="date">
-                        <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
+    <main class="content">
+        <h1>{{ title }}</h1>
+        
+        <div class="posts"
+                data-uk-scrollspy="cls: uk-animation-slide-left-small; target: .posts_article; delay: 300; repeat: true">
+            <article v-for="post in posts" v-bind:key="post.slug" class="posts_article">
+                <div class="posts_date">
+                    <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
+                </div>
+                <div class="post_intro">
+                    <nuxt-link :to="{ path: 'posts/' + post.slug }">
+                        <h3 class="posts_title">{{ post.title }}</h3>
+                    </nuxt-link>
+
+                    <nuxt-link v-if="post.image" :to="{ path: 'posts/' + post.slug }" :aria-label="'Beitragsbild ' + post.title">
+                        <img :src="post.image.data.thumbnails[6].url" :alt="'Bild zum Beitrag ' + post.title" />
+                    </nuxt-link>
+
+                    <div v-if="post.intro" v-html="post.intro">
                     </div>
-                    <div class="post-list-intro">
-                        <nuxt-link :to="{ path: 'posts/' + post.slug }">
-                            <h3 class="post-list-title">{{ post.title }}</h3>
-                        </nuxt-link>
 
-                        <nuxt-link v-if="post.image" :to="{ path: 'posts/' + post.slug }" :aria-label="'Beitragsbild ' + post.title">
-                            <img :src="post.image.data.thumbnails[3].url" :alt="'Bild zum Beitrag ' + post.title" />
-                        </nuxt-link>
-
-                        <div v-if="post.intro" v-html="post.intro">
-                        </div>
-
-                        <nuxt-link :to="{ path: 'posts/' + post.slug}">
-                            <span uk-icon="chevron-double-right"></span> Mehr
-                        </nuxt-link>
-                    </div>
-                </article>
-            </div>
-        </main>
-    </div>
+                    <nuxt-link :to="{ path: 'posts/' + post.slug}">
+                        <span uk-icon="chevron-double-right"></span> Mehr
+                    </nuxt-link>
+                </div>
+            </article>
+        </div>
+    </main>
 </template>
 
 <script>
@@ -62,20 +61,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.post-list {
-    &-article {
-        margin-bottom: 100px;
+    .posts {
+        &_article {
+            margin-bottom: 100px;
 
-        @media (min-width: 900px) {
-            display: flex;
+            @media (min-width: 900px) {
+                display: flex;
+            }
+        }
+        
+        &_title {
+            line-height: 1.3rem;
+        }
+        
+        &_date {
+            padding-right: 40px;
         }
     }
-    &-title {
-        line-height: 1.3rem;
-    }
-}
-
-.date {
-    padding-right: 40px;
-}
 </style>

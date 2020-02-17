@@ -1,13 +1,8 @@
 <template>
   <div>
-
     <OffCanvas />
-    <a class="navigation-kicker" href="#navigation" data-uk-toggle aria-label="Navigation öffnen oder schließen" >
-       <span data-uk-icon="icon: menu; ratio: 2"></span>
-    </a>
 
     <nuxt />
-
   </div>
 </template>
 
@@ -25,16 +20,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.navigation-kicker {
-  background: rgba(255, 255, 255, .9);
-  padding: 15px;
-  position: fixed;
-
-  @media (min-width: 940px) {
-    margin-left: 30px;
-    padding: 0;
-  }
-}
-</style>
