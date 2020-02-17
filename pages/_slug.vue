@@ -1,29 +1,28 @@
 <template>
     <div class="base">
         <main class="content">
+            <h1>{{ page.title }}</h1>
             <div v-html="page.text"></div>
         </main>
     </div>
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-
 export default {
-    async asyncData ({ params, error }) {
-        return await axios.get(`items/pages?filter[slug][eq]=${params.slug}&fields=title,text,seo_index&single=1`)
+    async asyncData ({ app, params, error }) {
+        return await app.$postRepository.index(`?filter[slug][eq]=${params.slug}&filter[is_page][nempty]&fields=title,text,seo_index&single=1`)
             .then((res) => {
-                return { page: res.data.data }
+                return { page: res.data }
             })
             .catch((e) => {
                 error({ statusCode: 404, message: 'Page not found' })
             })
     },
     head () {
-        var seoIndex = 'noindex';
+        var seoIndex = 'index';
 
-        if (this.page.seo_index == 1) {
-            seoIndex = 'index'
+        if (this.page.seo_index) {
+            seoIndex = 'noindex'
         }
 
         return {

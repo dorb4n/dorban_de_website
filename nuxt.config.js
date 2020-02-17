@@ -26,8 +26,7 @@ export default {
     ]
   },
   env: {
-    pageTitle: 'DORBAN',
-    api: 'https://api.dorban.de/dorban/',
+    pageTitle: 'DORBAN'
   },
   /*
   ** Customize the progress-bar color
@@ -44,7 +43,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/axios',
+    '~/plugins/repository',
     { src: '~/plugins/uikit.js', ssr: false }
   ],
   /*
@@ -64,6 +63,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: 'https://api.dorban.de/dorban'
   },
   /*
   ** Build configuration

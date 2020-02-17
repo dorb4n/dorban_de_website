@@ -5,13 +5,11 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-
 export default {
-  async asyncData ({ params, error }) {
-    return await axios.get(`items/pages?filter[slug][eq]=home&fields=title,text&single=1`)
+  async asyncData ({ app, params, error }) {
+    return await app.$postRepository.index('?filter[slug][eq]=home&fields=title,text&single=1')
       .then((res) => {
-        return { home: res.data.data }
+        return { home: res.data }
       })
       .catch((e) => {
         error({ statusCode: 404, message: 'Home not found' })
