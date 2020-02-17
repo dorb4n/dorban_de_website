@@ -3,7 +3,7 @@
         <h1>{{ title }}</h1>
         
         <div class="posts"
-                data-uk-scrollspy="cls: uk-animation-slide-left-small; target: .posts_article; delay: 300; repeat: true">
+             data-uk-scrollspy="cls: uk-animation-slide-left-small; target: .posts_article; delay: 300; repeat: true">
             <article v-for="post in posts" v-bind:key="post.slug" class="posts_article">
                 <div class="posts_date">
                     <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
@@ -25,6 +25,10 @@
                     </nuxt-link>
                 </div>
             </article>
+
+            <article v-if="!posts">
+                :/ Sorry, keine Beiträge gefunden
+            </article>
         </div>
     </main>
 </template>
@@ -33,10 +37,21 @@
 var moment = require('moment')
 
 export default {
-    async asyncData ({ app, params, error }) {
-        return await app.$postRepository.index(`?filter[is_page][empty]&fields=title,slug,published_on,image.*,intro,is_page&sort=-published_on`)
+    async asyncData ({ route, app, params, error }) {
+
+        var query = '?filter[is_page][empty]&fields=title,slug,published_on,image.*,intro,is_page&sort=-published_on'
+
+        if (route.query.tag) {
+            query = `?filter[is_page][empty]&filter[tags][contains]=${route.query.tag}&fields=title,slug,published_on,image.*,intro,is_page&sort=-published_on`
+        }
+
+        return await app.$postRepository.index(query)
             .then((res) => {
-                return { posts: res.data }
+                if (res.data.length == 0) {
+                    return { posts: '' }
+                } else {
+                    return { posts: res.data }
+                }
             })
             .catch((e) => {
                 error({ statusCode: 404, message: 'Posts not found' })
