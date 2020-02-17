@@ -6,7 +6,7 @@
             <div class="uk-article-meta">
                 <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
 
-                <nuxt-link v-for="tag in post.tags" v-bind:key="tag" :to="{ path: '/posts?tag=' + tag}">{{ tag }} </nuxt-link>
+                <nuxt-link v-for="tag in post.tags" v-bind:key="tag" :to="{ path: '/posts?tag=' + tag}">#{{ tag }} </nuxt-link>
             </div>
 
             <div class="uk-text-lead" v-html="post.intro"></div>
@@ -34,6 +34,11 @@ export default {
     async asyncData ({ app, params, error }) {
         return await app.$postRepository.index(`?filter[slug][eq]=${params.slug}&fields=intro,title,text,published_on,tags,images.*.*&single=1`)
             .then((res) => {
+                // @TODO: workaround for api results
+                // getting an empty tag at the beginning and at the end
+                res.data.tags.shift()
+                res.data.tags.pop()
+
                 return { post: res.data }
             })
             .catch((e) => {
