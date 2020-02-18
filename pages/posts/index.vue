@@ -3,7 +3,7 @@
         <h1>{{ title }}</h1>
         
         <div class="posts"
-             data-uk-scrollspy="cls: uk-animation-slide-left-small; target: .posts_article; delay: 300; repeat: true">
+             data-uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .posts_article; delay: 300; repeat: true">
             <article v-for="post in posts" v-bind:key="post.slug" class="posts_article">
                 <div class="posts_date">
                     <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
@@ -38,6 +38,10 @@ var moment = require('moment')
 
 export default {
     async asyncData ({ route, app, params, error }) {
+
+        /**
+         * @TODO: I can't click on Posts in the Sidebar when tag is active as a GET parameter
+         */
 
         var query = '?filter[is_page][empty]&fields=title,slug,published_on,image.*,intro,is_page&sort=-published_on'
 
