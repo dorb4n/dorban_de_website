@@ -4,24 +4,26 @@
         
         <div class="posts"
              data-uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .posts_article; delay: 300; repeat: true">
-            <article v-for="post in posts" v-bind:key="post.slug" class="posts_article">
-                <div class="posts_date">
-                    <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
+            <article v-for="post in posts" v-bind:key="post.slug" class="posts-article" data-uk-grid>
+                <div class="posts-article_image uk-width-1-3@m">
+                    <nuxt-link v-if="post.image" :to="{ path: 'posts/' + post.slug }" :aria-label="'Beitragsbild ' + post.title">
+                        <img :src="post.image.data.thumbnails[6].url" :alt="'Bild zum Beitrag ' + post.title"
+                             data-uk-img />
+                    </nuxt-link>
                 </div>
-                <div class="post_intro">
+
+                <div class="posts-article_intro uk-width-expand@m">
                     <nuxt-link :to="{ path: 'posts/' + post.slug }">
                         <h3 class="posts_title">{{ post.title }}</h3>
                     </nuxt-link>
 
-                    <nuxt-link v-if="post.image" :to="{ path: 'posts/' + post.slug }" :aria-label="'Beitragsbild ' + post.title">
-                        <img :src="post.image.data.thumbnails[6].url" :alt="'Bild zum Beitrag ' + post.title" />
-                    </nuxt-link>
+                    <time :datetime="post.published_on" class="uk-display-block">{{ post.published_on | moment }}</time>
 
                     <div v-if="post.intro" v-html="post.intro">
                     </div>
 
-                    <nuxt-link :to="{ path: 'posts/' + post.slug}">
-                        <span uk-icon="chevron-double-right"></span> Mehr
+                    <nuxt-link :to="{ path: 'posts/' + post.slug}" class="uk-text-uppercase uk-text-bold">
+                        <span uk-icon="chevron-double-right"></span>Mehr
                     </nuxt-link>
                 </div>
             </article>
@@ -81,20 +83,8 @@ export default {
 
 <style lang="scss" scoped>
     .posts {
-        &_article {
+        &-article {
             margin-bottom: 100px;
-
-            @media (min-width: 900px) {
-                display: flex;
-            }
-        }
-        
-        &_title {
-            line-height: 1.3rem;
-        }
-        
-        &_date {
-            padding-right: 40px;
         }
     }
 </style>

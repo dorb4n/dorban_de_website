@@ -3,7 +3,7 @@
         <article class="uk-article post">
             <h1 class="uk-article-title">{{ post.title }}</h1>
 
-            <div class="uk-article-meta">
+            <div class="uk-article-meta uk-text-uppercase">
                 <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
 
                 <nuxt-link v-for="tag in post.tags" v-bind:key="tag" :to="{ path: '/posts?tag=' + tag}">#{{ tag }} </nuxt-link>
@@ -13,17 +13,20 @@
         
             <div v-html="post.text"></div>
 
-            <div v-if="post.images" class="uk-child-width-1-3@m" data-uk-grid uk-lightbox="animation: scale"
+            <div v-if="post.images" class="uk-child-width-1-3@m uk-margin-bottom" data-uk-grid uk-lightbox="animation: scale"
                     data-uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .post_gallery__item; delay: 300; repeat: true">
                 <a v-for="image in post.images" v-bind:key="image.id" :href="image.directus_files_id.data.thumbnails[7].url" 
                    :title="image.directus_files_id.title" :data-caption="image.directus_files_id.title" data-type="image"
                    class="post_gallery__item">
-                    <img :src="image.directus_files_id.data.thumbnails[6].url" :alt="'Bild zum Beitrag ' + post.title" />
+                    <img :src="image.directus_files_id.data.thumbnails[6].url" :alt="'Bild zum Beitrag ' + post.title"
+                         data-uk-img />
                 </a>
             </div>
         </article>
 
-        <router-link to="/posts"><span uk-icon="chevron-double-left"></span> Zurück</router-link>
+        <router-link to="/posts" class="uk-text-uppercase uk-text-bold">
+            <span uk-icon="chevron-double-left"></span>Zurück
+        </router-link>
     </main>
 </template>
 

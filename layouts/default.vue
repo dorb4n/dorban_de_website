@@ -1,17 +1,21 @@
 <template>
-  <div>
-    <OffCanvas />
+  <div class="page">
+    <pageHeader />
 
     <nuxt />
+
+    <pageFooter />
   </div>
 </template>
 
 <script>
-import OffCanvas from '~/components/OffCanvas'
+import pageHeader from '~/components/pageHeader'
+import pageFooter from '~/components/pageFooter'
 
 export default {
   components: {
-    OffCanvas
+    pageHeader,
+    pageFooter
   },
   data () {
     return {
@@ -20,3 +24,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .page {
+    margin: 20px auto;
+    max-width: 900px;
+    width: 100%;
+  }
+</style>

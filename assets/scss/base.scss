@@ -1,44 +1,33 @@
 body {
-    margin: 0;
     font-family: monospace;
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 h1,
 h2,
 h3,
 h4 {
-    background: rgb(10,89,163);
-    background: linear-gradient(90deg, rgba(10,89,163,1) 0%, rgba(0,105,8,1) 100%); 
+    color: rgb(28, 102, 17);
     font-family: monospace;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 a {
-    color:rgba(10,89,163,1);
+    color: #666;
+    font-weight: bold;
 
     &:hover {
-        color: rgba(0,105,8,1);
+        color:rgb(28, 102, 17);
     }
 }
 
 .content {
-    padding: 70px 20px;
-    max-width: 800px;
-
-    @media (min-width: 940px) {
-        margin: 30px auto;
-        padding: 0 20px;
-    }
-
-    img {
-        border-radius: 5px;
-        height: auto;
-        max-width: 100%;
-    }
+    padding: 70px 0;
 
     p, ul, ol, dl, address {
-        font-family: serif;
+        //font-family: sans-serif;
     }
 
     li {
