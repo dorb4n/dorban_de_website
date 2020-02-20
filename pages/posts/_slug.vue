@@ -14,7 +14,7 @@
             <div v-html="post.text"></div>
 
             <div v-if="post.images" class="uk-child-width-1-3@m uk-margin-bottom" data-uk-grid uk-lightbox="animation: scale"
-                    data-uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .post_gallery__item; delay: 300; repeat: true">
+                    data-uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .post_gallery__item; delay: 300">
                 <a v-for="image in post.images" v-bind:key="image.id" :href="image.directus_files_id.data.thumbnails[7].url" 
                    :title="image.directus_files_id.title" :data-caption="image.directus_files_id.title" data-type="image"
                    class="post_gallery__item">

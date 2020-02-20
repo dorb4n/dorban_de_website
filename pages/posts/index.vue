@@ -3,7 +3,7 @@
         <h1>{{ title }}</h1>
         
         <div class="posts"
-             data-uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .posts-article; delay: 300; repeat: true">
+             data-uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .posts-article; delay: 300">
             <article v-for="post in posts" v-bind:key="post.slug" class="posts-article" data-uk-grid>
                 <div class="posts-article_image uk-width-1-3@m">
                     <nuxt-link v-if="post.image" :to="{ path: 'posts/' + post.slug }" :aria-label="'Beitragsbild ' + post.title">
