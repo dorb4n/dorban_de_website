@@ -6,7 +6,7 @@
         <nav class="page-header_navigation uk-width-1-2@s">
             <ul>
                 <li>
-                    <nuxt-link to="/" aria-label="Zur Startseite">Start</nuxt-link>
+                    <nuxt-link to="/" aria-label="Zur Startseite">Home</nuxt-link>
                 </li>
                 <li>
                     <nuxt-link to="/posts" aria-label="Beiträge lesen">Beiträge</nuxt-link>
