@@ -18,8 +18,8 @@
                 <a v-for="image in post.images" v-bind:key="image.id" :href="image.directus_files_id.data.thumbnails[7].url" 
                    :title="image.directus_files_id.title" :data-caption="image.directus_files_id.title" data-type="image"
                    class="post_gallery__item">
-                    <img :src="image.directus_files_id.data.thumbnails[6].url" :alt="'Bild zum Beitrag ' + post.title"
-                         data-uk-img />
+                    <img :alt="'Bild zum Beitrag ' + post.title"
+                         data-uk-img :data-src="image.directus_files_id.data.thumbnails[6].url" />
                 </a>
             </div>
         </article>
