@@ -24,9 +24,9 @@
             </div>
         </article>
 
-        <router-link to="/posts" class="uk-text-uppercase uk-text-bold">
-            <span uk-icon="chevron-double-left"></span>Zurück
-        </router-link>
+        <div class="uk-text-uppercase uk-text-bold">
+            // <nuxt-link to="/posts">Zurück</nuxt-link>
+        </div>
     </main>
 </template>
 

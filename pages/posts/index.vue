@@ -22,9 +22,9 @@
                     <div v-if="post.intro" v-html="post.intro">
                     </div>
 
-                    <nuxt-link :to="{ path: 'posts/' + post.slug}" class="uk-text-uppercase uk-text-bold">
-                        <span uk-icon="chevron-double-right"></span>Mehr
-                    </nuxt-link>
+                    <div class="uk-text-uppercase uk-text-bold">
+                        // <nuxt-link :to="{ path: 'posts/' + post.slug}" >Mehr</nuxt-link>
+                    </div>
                 </div>
             </article>
 
