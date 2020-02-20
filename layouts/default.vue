@@ -27,7 +27,9 @@ export default {
 
 <style lang="scss" scoped>
   .page {
+    box-sizing: border-box;
     margin: 20px auto;
+    padding: 0 20px;
     max-width: 900px;
     width: 100%;
   }
