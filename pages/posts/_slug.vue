@@ -13,11 +13,11 @@
         
             <div v-html="post.text"></div>
 
-            <div v-if="post.images" class="uk-child-width-1-2 uk-child-width-1-3@s uk-margin-bottom" data-uk-grid uk-lightbox="animation: scale"
+            <div v-if="post.images" class="uk-child-width-1-3@s uk-margin-bottom" data-uk-grid uk-lightbox="animation: scale"
                     data-uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .post_gallery__item; delay: 300">
                 <a v-for="image in post.images" v-bind:key="image.id" :href="image.directus_files_id.data.thumbnails[7].url" 
                    :title="image.directus_files_id.title" :data-caption="image.directus_files_id.title" data-type="image"
-                   class="post_gallery__item">
+                   class="post-gallery_item">
                     <img :alt="'Bild zum Beitrag ' + post.title"
                          data-uk-img :data-src="image.directus_files_id.data.thumbnails[6].url" />
                 </a>
@@ -60,3 +60,15 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    .post {
+        &-gallery {
+            &_item {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+</style>
