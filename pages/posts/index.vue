@@ -85,6 +85,12 @@ export default {
     .posts {
         &-article {
             margin-bottom: 100px;
+
+            &_image {
+                img {
+                    width: 100%;
+                }
+            }
         }
     }
 </style>
