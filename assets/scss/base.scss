@@ -35,3 +35,9 @@ a {
         color: #666;
     }
 }
+
+.slashes::before {
+    content: '//';
+    display: inline-block;
+    padding-right: 8px;
+}

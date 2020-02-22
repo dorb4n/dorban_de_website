@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="uk-text-uppercase uk-text-bold">
-                        // <nuxt-link :to="{ path: 'posts/' + post.slug}" >Mehr</nuxt-link>
+                        <nuxt-link :to="{ path: 'posts/' + post.slug}" class="slashes">Mehr</nuxt-link>
                     </div>
                 </div>
             </article>

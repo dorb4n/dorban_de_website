@@ -25,7 +25,7 @@
         </article>
 
         <div class="uk-text-uppercase uk-text-bold">
-            // <nuxt-link to="/posts">Zurück</nuxt-link>
+            <nuxt-link to="/posts" class="slashes">Zurück</nuxt-link>
         </div>
     </main>
 </template>

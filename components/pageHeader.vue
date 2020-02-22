@@ -1,7 +1,7 @@
 <template>
     <header class="page-header uk-text-bold uk-text-uppercase" data-uk-grid>
         <div class="page-header_logo uk-width-1-2@s">
-            <nuxt-link to="/">{{ title }}</nuxt-link> <span class="uk-text-normal">// Stephan Plöhn</span>
+            <nuxt-link to="/">{{ title }}</nuxt-link> <span class="uk-text-normal slashes">Stephan Plöhn</span>
         </div>
         <nav class="page-header_navigation uk-width-1-2@s">
             <ul>
