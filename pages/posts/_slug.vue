@@ -6,7 +6,7 @@
             <div class="uk-article-meta uk-text-uppercase">
                 <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
 
-                <nuxt-link v-for="tag in post.tags" v-bind:key="tag" :to="{ path: '/posts?tag=' + tag}">#{{ tag }} </nuxt-link>
+                <nuxt-link v-for="tag in post.tags" v-bind:key="tag" :to="{ path: '/posts/tag/' + tag}">#{{ tag }} </nuxt-link>
             </div>
 
             <div class="uk-text-lead" v-html="post.intro"></div>

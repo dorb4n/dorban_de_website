@@ -10,8 +10,8 @@
 import postsList from "~/components/postsList"
 
 export default {
-    async asyncData ({ app, error }) {
-        return await app.$postRepository.index('?filter[is_page][empty]&fields=title,slug,published_on,image.*,intro,is_page&sort=-published_on')
+    async asyncData ({ app, params, error }) {
+        return await app.$postRepository.index(`?filter[is_page][empty]&filter[tags][contains]=${params.slug}&fields=title,slug,published_on,image.*,intro,is_page&sort=-published_on`)
             .then((res) => {
                 if (res.data.length == 0) {
                     return { posts: '' }
@@ -27,9 +27,11 @@ export default {
         postsList
     },
     data () {
-        console.log(this.$route.name)
+        const tag = this.$route.params.slug
+        const title = (tag) ? 'Beiträge zu ' + tag : 'Beiträge'
+
         return {
-            title: 'Beiträge',
+            title: title
         }
     },
     head () {
