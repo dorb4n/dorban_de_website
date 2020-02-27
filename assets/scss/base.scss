@@ -1,5 +1,8 @@
+@import 'variables';
+
 body {
-    font-family: monospace;
+    font-family: $font-base;
+    font-size: 1.2rem;
     margin: 0;
 }
 
@@ -7,18 +10,20 @@ h1,
 h2,
 h3,
 h4 {
-    color: rgb(28, 102, 17);
+    color: $color-headlines;
     font-family: monospace;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 a {
-    color: #666;
+    color: $color-links;
     font-weight: bold;
+    text-decoration: none;
 
     &:hover {
-        color:rgb(28, 102, 17);
+        color: $color-links-hover;
+        text-decoration: underline;
     }
 }
 
@@ -26,13 +31,11 @@ a {
     padding: 70px 0;
 
     li {
-        @media (max-width: 939px) {
-            padding: 5px 0;
-        }
-    }
+        padding: 5px 0;
 
-    .uk-article-meta {
-        color: #666;
+        @media (min-width: $breakpoint) {
+            padding: 3px 0;
+        }
     }
 }
 
@@ -40,4 +43,17 @@ a {
     content: '//';
     display: inline-block;
     padding-right: 8px;
+}
+
+.text-strong {
+    font-weight: bold;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-normal {
+    font-weight: normal;
+    text-transform: inherit;
 }

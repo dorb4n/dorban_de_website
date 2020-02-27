@@ -1,9 +1,9 @@
 <template>
-    <header class="page-header uk-text-bold uk-text-uppercase" data-uk-grid>
-        <div class="page-header_logo uk-width-1-2@s">
-            <nuxt-link to="/">{{ title }}</nuxt-link> <span class="uk-text-normal slashes">Stephan Plöhn</span>
+    <header class="page-header text-bold text-uppercase">
+        <div class="page-header_logo">
+            <nuxt-link to="/">{{ title }}</nuxt-link> <span class="text-normal slashes">Stephan Plöhn</span>
         </div>
-        <nav class="page-header_navigation uk-width-1-2@s">
+        <nav class="page-header_navigation">
             <ul>
                 <li>
                     <nuxt-link to="/" aria-label="Zur Startseite">Home</nuxt-link>
@@ -17,36 +17,49 @@
 </template>
 
 <style lang="scss" scoped>
-    .page-header {
-        &_navigation {
-            ul {
-                margin: 0;
-                padding: 0;
-                list-style: none;
+@import '~/assets/scss/variables';
 
-                @media (min-width: 640px) {
-                    text-align: right;
-                }
-            }
-            li {
-                display: inline-block;
-                margin-right: 20px;
-                
-                @media (min-width: 640px) {
-                    margin: 0 0 0 20px;
-                }
-            }
+.page-header {
+    @media (min-width: $breakpoint) {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-            .nuxt-link-exact-active {
-                color:rgb(28, 102, 17);
-                text-decoration: underline;
+    &_navigation {
+        margin-top: 30px;
+
+        @media (min-width: $breakpoint) {
+            margin-top: 0;
+            flex-grow: 1;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            @media (min-width: $breakpoint) {
+                text-align: right;
             }
         }
+        li {
+            display: inline-block;
+            margin-right: 20px;
+            
+            @media (min-width: $breakpoint) {
+                margin: 0 0 0 20px;
+            }
+        }
+
+        .nuxt-link-exact-active {
+            color:rgb(28, 102, 17);
+            text-decoration: underline;
+        }
     }
+}
 </style>
 
 <script>
-
 export default {
     data () {
         return {
