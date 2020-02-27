@@ -36,7 +36,6 @@ export default {
   ** Global CSS
   */
   css: [
-    'uikit/dist/css/uikit.css',
     '@/assets/scss/base.scss'
   ],
   /*
@@ -44,7 +43,6 @@ export default {
   */
   plugins: [
     '~/plugins/repository',
-    { src: '~/plugins/uikit.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
