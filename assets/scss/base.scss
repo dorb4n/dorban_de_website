@@ -37,6 +37,11 @@ a {
             padding: 3px 0;
         }
     }
+
+    img {
+        height: auto;
+        max-width: 100%;
+    }
 }
 
 .slashes::before {

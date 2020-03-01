@@ -1,30 +1,34 @@
 <template>
     <main class="content">
-        <article class="uk-article post">
-            <h1 class="uk-article-title">{{ post.title }}</h1>
+        <article class="post">
+            <h1>{{ post.title }}</h1>
 
-            <div class="uk-article-meta uk-text-uppercase">
+            <div class="text-uppercase text-strong post-meta">
                 <time :datetime="post.published_on">{{ post.published_on | moment }}</time>
 
-                <nuxt-link v-for="tag in post.tags" v-bind:key="tag" :to="{ path: '/posts/tag/' + tag}">#{{ tag }} </nuxt-link>
+                <nav>
+                    <ul>
+                        <li v-for="tag in post.tags" v-bind:key="tag">
+                            <nuxt-link :to="{ path: '/posts/tag/' + tag}">#{{ tag }}</nuxt-link>
+                        </li>
+                    </ul>
+                </nav>
             </div>
 
-            <div class="uk-text-lead" v-html="post.intro"></div>
+            <div v-html="post.intro"></div>
         
             <div v-html="post.text"></div>
 
-            <div v-if="post.images" class="uk-child-width-1-3@s uk-margin-bottom" data-uk-grid uk-lightbox="animation: scale"
-                    data-uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .post_gallery__item; delay: 300">
+            <div v-if="post.images" class="post-gallery">
                 <a v-for="image in post.images" v-bind:key="image.id" :href="image.directus_files_id.data.thumbnails[7].url" 
-                   :title="image.directus_files_id.title" :data-caption="image.directus_files_id.title" data-type="image"
-                   class="post-gallery_item">
+                   :title="image.directus_files_id.title" class="post-gallery_item">
                     <img :alt="'Bild zum Beitrag ' + post.title"
-                         data-uk-img :data-src="image.directus_files_id.data.thumbnails[6].url" />
+                         :src="image.directus_files_id.data.thumbnails[6].url" />
                 </a>
             </div>
         </article>
 
-        <div class="uk-text-uppercase uk-text-bold">
+        <div class="text-uppercase text-strong">
             <nuxt-link to="/posts" class="slashes">Zurück</nuxt-link>
         </div>
     </main>
@@ -62,13 +66,54 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .post {
-        &-gallery {
-            &_item {
-                img {
-                    width: 100%;
+@import '~/assets/scss/variables';
+
+.post {
+    &-meta {
+        display: flex;
+
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+        li {
+            margin-right: 10px;
+            padding: 0;
+        }
+    }
+    &-gallery {
+        margin-bottom: 15px;
+
+        @media (min-width: $breakpoint) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &_item {
+            display: block;
+            margin: 15px 0;
+            
+
+            @media (min-width: $breakpoint) {
+                flex-basis: 256px;
+                flex-grow: 1;
+                margin: 15px;
+            }
+
+            img {
+                width: 100%;
+
+                @media (min-width: $breakpoint) {
+                    transition: all ease 300ms;
+
+                    &:hover {
+                        box-shadow: 0 40px 40px -20px rgba(51,51,51,0.3);
+                        transform: scale(1.01);
+                    }
                 }
             }
         }
     }
+}
 </style>
