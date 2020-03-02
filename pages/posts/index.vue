@@ -27,7 +27,6 @@ export default {
         postsList
     },
     data () {
-        console.log(this.$route.name)
         return {
             title: 'Beiträge',
         }
