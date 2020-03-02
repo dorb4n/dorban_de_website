@@ -25,6 +25,7 @@ export default {
     span, a {
         display: block;
         margin-top: 10px;
+        padding: 6px 0;
 
         @media (min-width: $breakpoint) {
             display: inline-block;
