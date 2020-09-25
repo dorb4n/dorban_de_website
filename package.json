@@ -11,12 +11,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.9.5",
-    "moment": "^2.24.0",
-    "nuxt": "^2.0.0"
+    "@nuxtjs/axios": "^5.12.2",
+    "moment": "^2.29.0",
+    "nuxt": "^2.14.6"
   },
   "devDependencies": {
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2"
   }
 }
