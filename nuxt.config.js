@@ -1,6 +1,5 @@
 
 export default {
-  mode: 'universal',
   /*
   ** Headers of the page
   */
@@ -72,9 +71,5 @@ export default {
     */
     extend (config, ctx) {
     }
-  },
-  server: {
-    host: "0.0.0.0",
-    port: 8000
   }
 }
