@@ -1,75 +1,61 @@
-
 export default {
-  /*
-  ** Headers of the page
-  */
+  // Target: https://go.nuxtjs.dev/config-target
+  target: 'static',
+
+  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: process.env.npm_package_name || '',
-    htmlAttrs: {
-      lang: 'de-DE',
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Stephan und das Internet.' },
-      { name: 'msapplication-TileColor', content: '#ffffff' },
-      { name: 'theme-color', content: '#ffffff' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'manifest', href: '/site.webmanifest' },
-      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#1c6611' },
-      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
-    ]
+      title: 'dorban.de - Persönliche Website von Stephan Plöhn #webdev #webdesign #gamer',
+      htmlAttrs: {
+          lang: 'de'
+      },
+      link: [
+          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
   },
-  env: {
-    pageTitle: 'DORBAN'
-  },
-  /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: '#fff' },
-  /*
-  ** Global CSS
-  */
+
+  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/scss/base.scss'
   ],
-  /*
-  ** Plugins to load before mounting the App
-  */
+
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/repository',
   ],
-  /*
-  ** Nuxt.js dev-modules
-  */
+
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+      '@nuxtjs/pwa',
   ],
-  /*
-  ** Nuxt.js modules
-  */
+
+  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
   ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {
-    baseURL: 'https://api.dorban.de/dorban'
-  },
-  /*
-  ** Build configuration
-  */
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
-  }
+  },
+
+  // Generate Configuration
+  generate: {
+      fallback: true,
+  },
+
+  // PWA Configuration: https://pwa.nuxtjs.org
+  pwa: {
+      meta: {
+          theme_color: '#ffffff', // TODO
+          lang: 'de',
+          ogHost: 'https://dorban.de',
+      },
+      manifest: {
+          background_color: '#ffffff', // TODO
+          display: 'standalone',
+          lang: 'de',
+          name: 'dorban',
+          short_name: 'dorban',
+          theme_color: '#ffffff', // TODO
+      }
+  },
 }
