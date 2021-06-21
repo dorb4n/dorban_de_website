@@ -9,7 +9,7 @@ export default {
           lang: 'de'
       },
       link: [
-          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+          { rel: 'icon', type: 'image/png', href: '/favicon.png' }
       ],
   },
 
@@ -45,17 +45,16 @@ export default {
   // PWA Configuration: https://pwa.nuxtjs.org
   pwa: {
       meta: {
-          theme_color: '#ffffff', // TODO
+          theme_color: '#050505', // TODO
           lang: 'de',
           ogHost: 'https://dorban.de',
       },
       manifest: {
-          background_color: '#ffffff', // TODO
+          background_color: '#050505',
           display: 'standalone',
           lang: 'de',
           name: 'dorban',
           short_name: 'dorban',
-          theme_color: '#ffffff', // TODO
       }
   },
 }

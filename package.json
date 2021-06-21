@@ -1,8 +1,8 @@
 {
-  "name": "frontend",
-  "version": "1.0.0",
-  "description": "Simple frontend for dorban.de",
-  "author": "Dorban",
+  "name": "dorban",
+  "version": "2.1.0",
+  "description": "Persönliche Website von Stephan Plöhn",
+  "author": "Stephan Plöhn",
   "private": true,
   "scripts": {
     "dev": "nuxt",

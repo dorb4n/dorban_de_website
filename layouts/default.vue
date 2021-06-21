@@ -6,82 +6,85 @@
 
 <style>
 :root {
-  --background: #282a36;
-  --foreground: #f8f8f2;
-  --yellow: #f1fa8c;
-  --orange: #ffb86c;
-  --comment: #6272a4;
-  --red: #ff5555;
+  --background: rgba(5,5,5,1);
+  --gray: rgba(24,26,27,1);
+  --foreground: rgba(255,255,255,1);
+  --primary: rgba(0,255,255,1);
+  --secondary: rgba(255,0,255,1);
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family:
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    "Liberation Mono",
-    "Courier New",
-    monospace;
-  font-size: 1.2rem;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /* TYPO */
 h1, h2, h3 {
-  color: var(--orange);
-  font-size: 1.2rem;
-  font-weight: 300;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  background-clip: text;
   margin: 0;
+  display: inline-block;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2rem;
 }
 
 h1:before,
 h2:before,
 h3:before,
 li {
+  color: var(--primary);
   display: inline-block;
   padding-right: 1rem;
 }
 
-h1:before {
-  content: '# ';
-}
-
-h2:before {
-  content: '## ';
-}
-
-h3:before {
-  content: '### ';
-}
-
 a {
-  color: var(--yellow);
-  text-decoration: none;;
-}
-a:hover {
-  text-decoration: underline;
+  color: var(--primary);
+  display: inline-block;
+  text-decoration: none;
 }
 
-p,
-ul,
-ol,
-li  {
-  margin: 0;
-  padding: 0;
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
 }
 
 li:before {
-  color: var(--red);
+  color: var(--primary);
   content: '- ';
 }
 
-/* Styling classes */
-.comment {
-  color: var(--comment);
+hr {
+  border-bottom: 1px solid;
+  border-image: linear-gradient(90deg, var(--secondary), var(--primary));
+  border-image-slice: 1;
+  margin: 3rem 0;
+}
+
+/* style classes */
+.badge {
+  background: var(--secondary);
+  border-radius: 4px;
+  color: var(--foreground);
+  display: inline-block;
+  margin: .2rem 0;
+  padding: 2px 6px;
+  text-transform: lowercase;
+}
+.badge:hover {
+  background: var(--primary);
+  color: var(--background);
 }
 </style>
